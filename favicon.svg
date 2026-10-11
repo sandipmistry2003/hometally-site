@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="9 11 206 223" role="img" aria-label="HomeTally">
+<title>HomeTally</title>
+<path d="M18 94L112 20L206 94" fill="none" stroke="#1F6FEB" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><path d="M166 58V30" fill="none" stroke="#1F6FEB" stroke-width="18" stroke-linecap="round"/><rect x="47" y="104" width="62" height="62" rx="13" fill="#BCD9F5"/><rect x="115" y="104" width="62" height="62" rx="13" fill="#FBE2A0"/><rect x="47" y="172" width="62" height="62" rx="13" fill="#D2C4EF"/><rect x="115" y="172" width="62" height="62" rx="13" fill="#C3EBD0"/>
+</svg>

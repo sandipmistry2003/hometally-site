@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>hometally · Coming live soon</title>
+    <meta name="description" content="hometally, a household manager for Indian families. Proudly made in India. Coming live soon." />
+    <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="hometally · Coming live soon" />
+    <meta property="og:description" content="Proudly made in India." />
+    <meta property="og:url" content="https://hometally.in/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f2f2f7;
+        --text: #1c1c1e;
+        --muted: #6b6b73;
+        --accent: #1f6feb;
+        --tally: #1f6feb;
+        --chip: #ffffff;
+        --chip-line: rgba(28, 28, 30, 0.08);
+        --live: #1f9d55;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #111214;
+          --text: #ececf0;
+          --muted: #9a9aa3;
+          --tally: #8ab4ff;
+          --chip: #1c1d21;
+          --chip-line: rgba(236, 236, 240, 0.08);
+          --live: #3ddc84;
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100svh;
+        padding: 24px 16px;
+        overflow-x: hidden;
+      }
+      /* Soft tile glow behind the logo, in the four tile colours */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: -20vmax;
+        background:
+          radial-gradient(28vmax 28vmax at 30% 35%, rgba(188, 217, 245, 0.55), transparent 70%),
+          radial-gradient(24vmax 24vmax at 70% 30%, rgba(251, 226, 160, 0.45), transparent 70%),
+          radial-gradient(26vmax 26vmax at 35% 70%, rgba(210, 196, 239, 0.45), transparent 70%),
+          radial-gradient(24vmax 24vmax at 68% 68%, rgba(195, 235, 208, 0.5), transparent 70%);
+        filter: blur(20px);
+        z-index: -1;
+      }
+      @media (prefers-color-scheme: dark) {
+        body::before { opacity: 0.16; }
+      }
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(28px, 6vh, 48px);
+        width: 100%;
+      }
+      h1 { margin: 0; }
+      .logo {
+        display: block;
+        width: min(440px, 82vw);
+        height: auto;
+        color: var(--accent);
+        overflow: visible;
+      }
+      .logo .home { fill: var(--text); }
+      .logo .tally { fill: var(--tally); }
+
+      .soon {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 22px 12px 18px;
+        border-radius: 999px;
+        background: var(--chip);
+        border: 1px solid var(--chip-line);
+        box-shadow: 0 6px 24px rgba(31, 111, 235, 0.08);
+        font-family: 'Comfortaa', system-ui, sans-serif;
+        font-weight: 700;
+        font-size: clamp(17px, 4.2vw, 22px);
+        letter-spacing: 0.01em;
+      }
+      .dot {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--live);
+        flex: none;
+      }
+      .dot::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: var(--live);
+        animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
+
+      footer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-top: 24px;
+        color: var(--muted);
+        font-family: 'Comfortaa', system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+      }
+      footer strong { color: var(--text); font-weight: 700; }
+      .heart {
+        display: block;
+        width: 20px;
+        height: 20px;
+        flex: none;
+        transform-origin: center;
+        animation: beat 1.6s ease-in-out infinite;
+      }
+
+      /* Entrance: roof draws, tiles drop in one by one, then the words */
+      @media (prefers-reduced-motion: no-preference) {
+        .logo .roof { stroke-dasharray: 320; stroke-dashoffset: 320; animation: draw 0.7s ease-out 0.1s forwards; }
+        .logo .tile { transform-box: fill-box; transform-origin: center; opacity: 0; animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .logo .t1 { animation-delay: 0.45s; }
+        .logo .t2 { animation-delay: 0.55s; }
+        .logo .t3 { animation-delay: 0.65s; }
+        .logo .t4 { animation-delay: 0.75s; }
+        .logo .home, .logo .tally { opacity: 0; animation: fade 0.6s ease-out 0.9s forwards; }
+        .soon { opacity: 0; animation: rise 0.6s ease-out 1.2s forwards; }
+        footer { opacity: 0; animation: fade 0.8s ease-out 1.5s forwards; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .dot::after, .heart { animation: none; }
+      }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      @keyframes pop { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+      @keyframes fade { to { opacity: 1; } }
+      @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+      @keyframes beat {
+        0%, 40%, 100% { transform: scale(1); }
+        15% { transform: scale(1.22); }
+        28% { transform: scale(1.08); }
+      }
+      @keyframes ping { 75%, 100% { transform: scale(2.4); opacity: 0; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 aria-label="hometally"><svg class="logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 -78.1 582.36 102.1">
+
+<g transform="translate(0 -78.1) scale(0.350224) translate(-9 -11)"><path d="M18 94L112 20L206 94" fill="none" class="roof" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><path d="M166 58V30" fill="none" class="roof" stroke="currentColor" stroke-width="18" stroke-linecap="round"/><rect x="47" y="104" width="62" height="62" rx="13" fill="#BCD9F5" class="tile t1"/><rect x="115" y="104" width="62" height="62" rx="13" fill="#FBE2A0" class="tile t2"/><rect x="47" y="172" width="62" height="62" rx="13" fill="#D2C4EF" class="tile t3"/><rect x="115" y="172" width="62" height="62" rx="13" fill="#C3EBD0" class="tile t4"/></g>
+<path class="home" d="M99.25-19.90L99.25-19.90Q97.05-19.90 95.60-21.35Q94.15-22.80 94.15-25L94.15-25L94.15-73Q94.15-75.30 95.60-76.70Q97.05-78.10 99.25-78.10L99.25-78.10Q101.55-78.10 102.95-76.70Q104.35-75.30 104.35-73L104.35-73L104.35-25Q104.35-22.80 102.95-21.35Q101.55-19.90 99.25-19.90ZM140.35 0.10L140.35 0.10Q138.15 0.10 136.70-1.35Q135.25-2.80 135.25-5L135.25-5L135.25-29.60Q135.25-35.30 133.15-38.90Q131.05-42.50 127.50-44.25Q123.95-46 119.35-46L119.35-46Q115.15-46 111.75-44.30Q108.35-42.60 106.35-39.75Q104.35-36.90 104.35-33.20L104.35-33.20L98.05-33.20Q98.05-39.50 101.10-44.45Q104.15-49.40 109.45-52.30Q114.75-55.20 121.35-55.20L121.35-55.20Q128.25-55.20 133.70-52.25Q139.15-49.30 142.30-43.60Q145.45-37.90 145.45-29.60L145.45-29.60L145.45-5Q145.45-2.80 144.00-1.35Q142.55 0.10 140.35 0.10ZM99.25 0.10L99.25 0.10Q97.05 0.10 95.60-1.35Q94.15-2.80 94.15-5L94.15-5L94.15-49.60Q94.15-51.90 95.60-53.30Q97.05-54.70 99.25-54.70L99.25-54.70Q101.55-54.70 102.95-53.30Q104.35-51.90 104.35-49.60L104.35-49.60L104.35-5Q104.35-2.80 102.95-1.35Q101.55 0.10 99.25 0.10ZM185.25 0.40L185.25 0.40Q177.15 0.40 170.95-3.15Q164.75-6.70 161.20-12.95Q157.65-19.20 157.65-27.30L157.65-27.30Q157.65-35.50 161.20-41.75Q164.75-48 170.95-51.55Q177.15-55.10 185.25-55.10L185.25-55.10Q193.25-55.10 199.45-51.55Q205.65-48 209.20-41.75Q212.75-35.50 212.75-27.30L212.75-27.30Q212.75-19.20 209.25-12.95Q205.75-6.70 199.55-3.15Q193.35 0.40 185.25 0.40ZM185.25-8.60L185.25-8.60Q190.45-8.60 194.45-11Q198.45-13.40 200.70-17.60Q202.95-21.80 202.95-27.30L202.95-27.30Q202.95-32.80 200.70-37.05Q198.45-41.30 194.45-43.70Q190.45-46.10 185.25-46.10L185.25-46.10Q180.05-46.10 176.05-43.70Q172.05-41.30 169.75-37.05Q167.45-32.80 167.45-27.30L167.45-27.30Q167.45-21.80 169.75-17.60Q172.05-13.40 176.05-11Q180.05-8.60 185.25-8.60ZM297.75 0.10L297.75 0.10Q295.55 0.10 294.10-1.35Q292.65-2.80 292.65-5L292.65-5L292.65-33.60Q292.65-39.90 289.55-42.95Q286.45-46 281.45-46L281.45-46Q276.25-46 272.90-42.40Q269.55-38.80 269.55-33.20L269.55-33.20L261.25-33.20Q261.25-39.70 264.05-44.65Q266.85-49.60 271.90-52.40Q276.95-55.20 283.45-55.20L283.45-55.20Q289.15-55.20 293.55-52.70Q297.95-50.20 300.40-45.35Q302.85-40.50 302.85-33.60L302.85-33.60L302.85-5Q302.85-2.80 301.45-1.35Q300.05 0.10 297.75 0.10ZM231.05 0.10L231.05 0.10Q228.85 0.10 227.40-1.35Q225.95-2.80 225.95-5L225.95-5L225.95-49.50Q225.95-51.80 227.40-53.20Q228.85-54.60 231.05-54.60L231.05-54.60Q233.35-54.60 234.75-53.20Q236.15-51.80 236.15-49.50L236.15-49.50L236.15-5Q236.15-2.80 234.75-1.35Q233.35 0.10 231.05 0.10ZM264.45 0.10L264.45 0.10Q262.25 0.10 260.80-1.35Q259.35-2.80 259.35-5L259.35-5L259.35-33.60Q259.35-39.90 256.25-42.95Q253.15-46 248.15-46L248.15-46Q242.95-46 239.55-42.40Q236.15-38.80 236.15-33.20L236.15-33.20L229.85-33.20Q229.85-39.70 232.45-44.65Q235.05-49.60 239.65-52.40Q244.25-55.20 250.15-55.20L250.15-55.20Q255.85-55.20 260.25-52.70Q264.65-50.20 267.10-45.35Q269.55-40.50 269.55-33.60L269.55-33.60L269.55-5Q269.55-2.80 268.15-1.35Q266.75 0.10 264.45 0.10ZM343.45 0.40L343.45 0.40Q335.15 0.40 328.70-3.15Q322.25-6.70 318.60-12.95Q314.95-19.20 314.95-27.30L314.95-27.30Q314.95-35.50 318.40-41.75Q321.85-48 327.95-51.55Q334.05-55.10 341.95-55.10L341.95-55.10Q349.75-55.10 355.35-51.65Q360.95-48.20 363.90-42.15Q366.85-36.10 366.85-28.20L366.85-28.20Q366.85-26.30 365.55-25.05Q364.25-23.80 362.25-23.80L362.25-23.80L321.95-23.80L321.95-31.80L361.95-31.80L357.85-29Q357.75-34 355.85-37.95Q353.95-41.90 350.45-44.20Q346.95-46.50 341.95-46.50L341.95-46.50Q336.25-46.50 332.20-44Q328.15-41.50 326.05-37.15Q323.95-32.80 323.95-27.30L323.95-27.30Q323.95-21.80 326.45-17.50Q328.95-13.20 333.35-10.70Q337.75-8.20 343.45-8.20L343.45-8.20Q346.55-8.20 349.80-9.35Q353.05-10.50 355.05-12L355.05-12Q356.55-13.10 358.30-13.15Q360.05-13.20 361.35-12.10L361.35-12.10Q363.05-10.60 363.15-8.80Q363.25-7 361.55-5.70L361.55-5.70Q358.15-3 353.10-1.30Q348.05 0.40 343.45 0.40Z"/>
+<path class="tally" d="M399.55 0L397.75 0Q392.75 0 388.75-2.55Q384.75-5.10 382.45-9.50Q380.15-13.90 380.15-19.40L380.15-19.40L380.15-67.10Q380.15-69.30 381.55-70.70Q382.95-72.10 385.15-72.10L385.15-72.10Q387.35-72.10 388.75-70.70Q390.15-69.30 390.15-67.10L390.15-67.10L390.15-19.40Q390.15-15.40 392.35-12.70Q394.55-10 397.75-10L397.75-10L401.15-10Q402.95-10 404.20-8.60Q405.45-7.20 405.45-5L405.45-5Q405.45-2.80 403.80-1.40Q402.15 0 399.55 0L399.55 0ZM398.65-44.10L375.55-44.10Q373.45-44.10 372.15-45.30Q370.85-46.50 370.85-48.30L370.85-48.30Q370.85-50.30 372.15-51.50Q373.45-52.70 375.55-52.70L375.55-52.70L398.65-52.70Q400.75-52.70 402.05-51.50Q403.35-50.30 403.35-48.30L403.35-48.30Q403.35-46.50 402.05-45.30Q400.75-44.10 398.65-44.10L398.65-44.10ZM438.75 0.40L438.75 0.40Q431.45 0.40 425.65-3.25Q419.85-6.90 416.50-13.15Q413.15-19.40 413.15-27.30L413.15-27.30Q413.15-35.20 416.80-41.50Q420.45-47.80 426.70-51.45Q432.95-55.10 440.75-55.10L440.75-55.10Q448.55-55.10 454.75-51.45Q460.95-47.80 464.60-41.50Q468.25-35.20 468.25-27.30L468.25-27.30L464.35-27.30Q464.35-19.40 461.00-13.15Q457.65-6.90 451.85-3.25Q446.05 0.40 438.75 0.40ZM440.75-8.60L440.75-8.60Q445.85-8.60 449.85-11.05Q453.85-13.50 456.15-17.75Q458.45-22 458.45-27.30L458.45-27.30Q458.45-32.70 456.15-36.95Q453.85-41.20 449.85-43.65Q445.85-46.10 440.75-46.10L440.75-46.10Q435.75-46.10 431.70-43.65Q427.65-41.20 425.30-36.95Q422.95-32.70 422.95-27.30L422.95-27.30Q422.95-22 425.30-17.75Q427.65-13.50 431.70-11.05Q435.75-8.60 440.75-8.60ZM463.15 0.10L463.15 0.10Q460.95 0.10 459.50-1.35Q458.05-2.80 458.05-5L458.05-5L458.05-20.30L459.95-30.90L468.25-27.30L468.25-5Q468.25-2.80 466.80-1.35Q465.35 0.10 463.15 0.10ZM494.65 0L494.45 0Q490.05 0 486.65-2.40Q483.25-4.80 481.35-8.95Q479.45-13.10 479.45-18.50L479.45-18.50L479.45-73.10Q479.45-75.30 480.85-76.70Q482.25-78.10 484.45-78.10L484.45-78.10Q486.65-78.10 488.05-76.70Q489.45-75.30 489.45-73.10L489.45-73.10L489.45-18.50Q489.45-14.80 490.85-12.40Q492.25-10 494.45-10L494.45-10L496.95-10Q498.95-10 500.20-8.60Q501.45-7.20 501.45-5L501.45-5Q501.45-2.80 499.55-1.40Q497.65 0 494.65 0L494.65 0ZM522.65 0L522.45 0Q518.05 0 514.65-2.40Q511.25-4.80 509.35-8.95Q507.45-13.10 507.45-18.50L507.45-18.50L507.45-73.10Q507.45-75.30 508.85-76.70Q510.25-78.10 512.45-78.10L512.45-78.10Q514.65-78.10 516.05-76.70Q517.45-75.30 517.45-73.10L517.45-73.10L517.45-18.50Q517.45-14.80 518.85-12.40Q520.25-10 522.45-10L522.45-10L524.95-10Q526.95-10 528.20-8.60Q529.45-7.20 529.45-5L529.45-5Q529.45-2.80 527.55-1.40Q525.65 0 522.65 0L522.65 0ZM547.25 24L547.25 24Q546.25 24 544.85 23.40L544.85 23.40Q540.45 21.40 542.45 17.10L542.45 17.10L572.95-51.80Q574.95-56 579.25-54.20L579.25-54.20Q583.75-52.30 581.75-47.90L581.75-47.90L551.15 20.90Q549.95 24 547.25 24ZM559.05-2.20L559.05-2.20Q557.15-1.40 555.50-2.05Q553.85-2.70 552.85-4.60L552.85-4.60L529.95-48.10Q528.95-50 529.70-51.75Q530.45-53.50 532.35-54.30L532.35-54.30Q534.25-55.10 535.95-54.45Q537.65-53.80 538.55-51.90L538.55-51.90L560.45-8.40Q561.45-6.50 561.20-4.75Q560.95-3 559.05-2.20Z"/>
+</svg></h1>
+      <p class="soon"><span class="dot" aria-hidden="true"></span>Coming live soon</p>
+    </main>
+    <footer>
+      <span>Proudly made with</span>
+      <svg class="heart" viewBox="0 0 24 24" aria-label="love" role="img">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff6b81" />
+            <stop offset="1" stop-color="#e5484d" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#hg)" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z" />
+      </svg>
+      <span>in <strong>India</strong></span>
+    </footer>
+  </body>
+</html>
