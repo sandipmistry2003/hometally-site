@@ -40,6 +40,7 @@
       }
       * { box-sizing: border-box; }
       html, body { height: 100%; margin: 0; }
+      p.soon { margin: 0; }
       body {
         background: var(--bg);
         color: var(--text);
@@ -57,10 +58,10 @@
         position: fixed;
         inset: -20vmax;
         background:
-          radial-gradient(28vmax 28vmax at 30% 35%, rgba(188, 217, 245, 0.55), transparent 70%),
-          radial-gradient(24vmax 24vmax at 70% 30%, rgba(251, 226, 160, 0.45), transparent 70%),
-          radial-gradient(26vmax 26vmax at 35% 70%, rgba(210, 196, 239, 0.45), transparent 70%),
-          radial-gradient(24vmax 24vmax at 68% 68%, rgba(195, 235, 208, 0.5), transparent 70%);
+          radial-gradient(28vmax 28vmax at 30% 35%, rgba(188, 217, 245, 0.35), transparent 70%),
+          radial-gradient(24vmax 24vmax at 70% 30%, rgba(251, 226, 160, 0.28), transparent 70%),
+          radial-gradient(26vmax 26vmax at 35% 70%, rgba(210, 196, 239, 0.28), transparent 70%),
+          radial-gradient(24vmax 24vmax at 68% 68%, rgba(195, 235, 208, 0.3), transparent 70%);
         filter: blur(20px);
         z-index: -1;
       }
@@ -73,13 +74,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: clamp(28px, 6vh, 48px);
+        gap: clamp(16px, 3vh, 22px);
         width: 100%;
       }
       h1 { margin: 0; }
+      p.soon { margin: 0; }
       .logo {
         display: block;
-        width: min(440px, 82vw);
+        width: min(190px, 52vw);
         height: auto;
         color: var(--accent);
         overflow: visible;
@@ -90,21 +92,21 @@
       .soon {
         display: inline-flex;
         align-items: center;
-        gap: 12px;
-        padding: 12px 22px 12px 18px;
+        gap: 6px;
+        padding: 5px 11px 5px 9px;
         border-radius: 999px;
         background: var(--chip);
         border: 1px solid var(--chip-line);
-        box-shadow: 0 6px 24px rgba(31, 111, 235, 0.08);
+        box-shadow: 0 2px 10px rgba(31, 111, 235, 0.06);
         font-family: 'Comfortaa', system-ui, sans-serif;
         font-weight: 700;
-        font-size: clamp(17px, 4.2vw, 22px);
+        font-size: 12px;
         letter-spacing: 0.01em;
       }
       .dot {
         position: relative;
-        width: 10px;
-        height: 10px;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
         background: var(--live);
         flex: none;
@@ -121,19 +123,19 @@
       footer {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding-top: 24px;
+        gap: 5px;
+        padding-top: 12px;
         color: var(--muted);
         font-family: 'Comfortaa', system-ui, sans-serif;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 11px;
         letter-spacing: 0.02em;
       }
       footer strong { color: var(--text); font-weight: 700; }
       .heart {
         display: block;
-        width: 20px;
-        height: 20px;
+        width: 11px;
+        height: 11px;
         flex: none;
         transform-origin: center;
         animation: beat 1.6s ease-in-out infinite;
