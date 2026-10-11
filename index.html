@@ -120,6 +120,50 @@
         animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
       }
 
+      .beta {
+        width: min(340px, 100%);
+        padding: 16px 18px;
+        border-radius: 18px;
+        background: var(--chip);
+        border: 1px solid var(--chip-line);
+        box-shadow: 0 4px 18px rgba(31, 111, 235, 0.07);
+        text-align: center;
+      }
+      .beta h2 {
+        margin: 0 0 6px;
+        font-family: 'Comfortaa', system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .beta p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .beta .mail {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Comfortaa', system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        transition: transform 0.15s ease, filter 0.2s ease;
+      }
+      .beta .mail:hover { filter: brightness(1.08); }
+      .beta .mail:active { transform: scale(0.97); }
+      .beta .mail:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+      .beta small {
+        display: block;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .beta small strong { color: var(--text); }
+
       .insta {
         display: inline-flex;
         align-items: center;
@@ -169,7 +213,8 @@
         .logo .t4 { animation-delay: 0.75s; }
         .logo .home, .logo .tally { opacity: 0; animation: fade 0.6s ease-out 0.9s forwards; }
         .soon { opacity: 0; animation: rise 0.6s ease-out 1.2s forwards; }
-        .insta { opacity: 0; animation: rise 0.6s ease-out 1.35s forwards; }
+        .beta { opacity: 0; animation: rise 0.6s ease-out 1.35s forwards; }
+        .insta { opacity: 0; animation: rise 0.6s ease-out 1.5s forwards; }
         footer { opacity: 0; animation: fade 0.8s ease-out 1.5s forwards; }
       }
       @media (prefers-reduced-motion: reduce) {
@@ -196,6 +241,12 @@
 <path class="tally" d="M399.55 0L397.75 0Q392.75 0 388.75-2.55Q384.75-5.10 382.45-9.50Q380.15-13.90 380.15-19.40L380.15-19.40L380.15-67.10Q380.15-69.30 381.55-70.70Q382.95-72.10 385.15-72.10L385.15-72.10Q387.35-72.10 388.75-70.70Q390.15-69.30 390.15-67.10L390.15-67.10L390.15-19.40Q390.15-15.40 392.35-12.70Q394.55-10 397.75-10L397.75-10L401.15-10Q402.95-10 404.20-8.60Q405.45-7.20 405.45-5L405.45-5Q405.45-2.80 403.80-1.40Q402.15 0 399.55 0L399.55 0ZM398.65-44.10L375.55-44.10Q373.45-44.10 372.15-45.30Q370.85-46.50 370.85-48.30L370.85-48.30Q370.85-50.30 372.15-51.50Q373.45-52.70 375.55-52.70L375.55-52.70L398.65-52.70Q400.75-52.70 402.05-51.50Q403.35-50.30 403.35-48.30L403.35-48.30Q403.35-46.50 402.05-45.30Q400.75-44.10 398.65-44.10L398.65-44.10ZM438.75 0.40L438.75 0.40Q431.45 0.40 425.65-3.25Q419.85-6.90 416.50-13.15Q413.15-19.40 413.15-27.30L413.15-27.30Q413.15-35.20 416.80-41.50Q420.45-47.80 426.70-51.45Q432.95-55.10 440.75-55.10L440.75-55.10Q448.55-55.10 454.75-51.45Q460.95-47.80 464.60-41.50Q468.25-35.20 468.25-27.30L468.25-27.30L464.35-27.30Q464.35-19.40 461.00-13.15Q457.65-6.90 451.85-3.25Q446.05 0.40 438.75 0.40ZM440.75-8.60L440.75-8.60Q445.85-8.60 449.85-11.05Q453.85-13.50 456.15-17.75Q458.45-22 458.45-27.30L458.45-27.30Q458.45-32.70 456.15-36.95Q453.85-41.20 449.85-43.65Q445.85-46.10 440.75-46.10L440.75-46.10Q435.75-46.10 431.70-43.65Q427.65-41.20 425.30-36.95Q422.95-32.70 422.95-27.30L422.95-27.30Q422.95-22 425.30-17.75Q427.65-13.50 431.70-11.05Q435.75-8.60 440.75-8.60ZM463.15 0.10L463.15 0.10Q460.95 0.10 459.50-1.35Q458.05-2.80 458.05-5L458.05-5L458.05-20.30L459.95-30.90L468.25-27.30L468.25-5Q468.25-2.80 466.80-1.35Q465.35 0.10 463.15 0.10ZM494.65 0L494.45 0Q490.05 0 486.65-2.40Q483.25-4.80 481.35-8.95Q479.45-13.10 479.45-18.50L479.45-18.50L479.45-73.10Q479.45-75.30 480.85-76.70Q482.25-78.10 484.45-78.10L484.45-78.10Q486.65-78.10 488.05-76.70Q489.45-75.30 489.45-73.10L489.45-73.10L489.45-18.50Q489.45-14.80 490.85-12.40Q492.25-10 494.45-10L494.45-10L496.95-10Q498.95-10 500.20-8.60Q501.45-7.20 501.45-5L501.45-5Q501.45-2.80 499.55-1.40Q497.65 0 494.65 0L494.65 0ZM522.65 0L522.45 0Q518.05 0 514.65-2.40Q511.25-4.80 509.35-8.95Q507.45-13.10 507.45-18.50L507.45-18.50L507.45-73.10Q507.45-75.30 508.85-76.70Q510.25-78.10 512.45-78.10L512.45-78.10Q514.65-78.10 516.05-76.70Q517.45-75.30 517.45-73.10L517.45-73.10L517.45-18.50Q517.45-14.80 518.85-12.40Q520.25-10 522.45-10L522.45-10L524.95-10Q526.95-10 528.20-8.60Q529.45-7.20 529.45-5L529.45-5Q529.45-2.80 527.55-1.40Q525.65 0 522.65 0L522.65 0ZM547.25 24L547.25 24Q546.25 24 544.85 23.40L544.85 23.40Q540.45 21.40 542.45 17.10L542.45 17.10L572.95-51.80Q574.95-56 579.25-54.20L579.25-54.20Q583.75-52.30 581.75-47.90L581.75-47.90L551.15 20.90Q549.95 24 547.25 24ZM559.05-2.20L559.05-2.20Q557.15-1.40 555.50-2.05Q553.85-2.70 552.85-4.60L552.85-4.60L529.95-48.10Q528.95-50 529.70-51.75Q530.45-53.50 532.35-54.30L532.35-54.30Q534.25-55.10 535.95-54.45Q537.65-53.80 538.55-51.90L538.55-51.90L560.45-8.40Q561.45-6.50 561.20-4.75Q560.95-3 559.05-2.20Z"/>
 </svg></h1>
       <p class="soon"><span class="dot" aria-hidden="true"></span>Coming live soon</p>
+      <section class="beta" aria-labelledby="beta-title">
+        <h2 id="beta-title">We're looking for beta testers</h2>
+        <p>Families in India with an Android phone: try hometally for 14 days before launch and tell us what to improve. Free to join.</p>
+        <a class="mail" href="mailto:hello@hometally.in?subject=hometally%20beta">Email hello@hometally.in</a>
+        <small>or DM <strong>BETA</strong> on Instagram</small>
+      </section>
       <a class="insta" href="https://www.instagram.com/hometally.in/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="3" width="18" height="18" rx="5" />
