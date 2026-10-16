@@ -238,12 +238,6 @@
         line-height: 1.5;
         text-align: center;
       }
-      .privacy {
-        margin: 6px 0 0;
-        color: var(--muted);
-        font-size: 10px;
-        opacity: 0.8;
-      }
       .heart {
         display: block;
         width: 11px;
@@ -266,7 +260,7 @@
         .about { opacity: 0; animation: rise 0.6s ease-out 1.28s forwards; }
         .beta { opacity: 0; animation: rise 0.6s ease-out 1.35s forwards; }
         .insta { opacity: 0; animation: rise 0.6s ease-out 1.5s forwards; }
-        footer, .privacy { opacity: 0; animation: fade 0.8s ease-out 1.5s forwards; }
+        footer { opacity: 0; animation: fade 0.8s ease-out 1.5s forwards; }
       }
       @media (prefers-reduced-motion: reduce) {
         .dot::after, .heart { animation: none; }
@@ -321,7 +315,6 @@
       </svg>
       <span>in <strong>India</strong></span>
     </footer>
-    <p class="privacy">This site counts visits without cookies.</p>
     <!-- Cloudflare Web Analytics (cookie-free) -->
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "66241010ac054fe9a1c50d49136e6d11"}'></script>
   </body>
