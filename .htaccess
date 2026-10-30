@@ -4,6 +4,9 @@ ErrorDocument 404 /index.html
 
 RewriteEngine On
 
+# The beta site's folder sits inside this one; it's only reachable as beta.hometally.in
+RewriteRule ^beta(/|$) - [R=404,L]
+
 # www → main address (GitHub Pages did the same)
 RewriteCond %{HTTP_HOST} ^www\.hometally\.in$ [NC]
 RewriteRule ^ https://hometally.in%{REQUEST_URI} [L,R=301]
